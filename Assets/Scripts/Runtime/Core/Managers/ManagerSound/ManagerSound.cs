@@ -5,36 +5,40 @@ using Themplate.Runtime.Systems.Singleton;
 using Themplate.Runtime.Systems.Sound;
 using UnityEngine;
 
-[RequireComponent(typeof(SoundSystem))]
-public class ManagerSound : Singleton<ManagerSound>
+namespace Themplate.Runtime.Core.Managers
 {
-    private SaveSystem _saveSystem;
-    private SoundSystem _soundSystem;
+    [RequireComponent(typeof(SoundSystem))]
+    public class ManagerSound : Singleton<ManagerSound>
+    {
+        private SaveSystem _saveSystem;
+        private SoundSystem _soundSystem;
     
-    public SoundSystem SoundSystem
-    {
-        get
+        public SoundSystem SoundSystem
         {
-            if (_saveSystem != null && _saveSystem.SaveState != null)
+            get
             {
-                bool isSoundOn = _saveSystem.SaveState.IsVibrationOn;
+                if (_saveSystem != null && _saveSystem.SaveState != null)
+                {
+                    bool isSoundOn = _saveSystem.SaveState.IsVibrationOn;
            
-                _soundSystem.SetPreventSound(!isSoundOn);
-            }
+                    _soundSystem.SetPreventSound(!isSoundOn);
+                }
      
-            return _soundSystem;
+                return _soundSystem;
+            }
+            private set { }
         }
-        private set { }
-    }
 
-    private void Awake()
-    {
-        _soundSystem = GetComponent<SoundSystem>();
-    }
+        private void Awake()
+        {
+            _soundSystem = GetComponent<SoundSystem>();
+        }
 
-    private void Start()
-    {
-        _saveSystem = ManagerSave.Instance.SaveSystem;
-    }
+        private void Start()
+        {
+            _saveSystem = ManagerSave.Instance.SaveSystem;
+        }
 
+    }
 }
+
