@@ -34,8 +34,8 @@ MonoBehaviour:
     - CW.Common
     - PPv2URPConverters
     - LeanCommon
-    - LeanTouch
     - Assembly-CSharp
+    - LeanTouch
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

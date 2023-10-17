@@ -5,9 +5,9 @@ using UnityEngine;
 using Themplate.Runtime.Systems.Input;
 
  public class InputSystem : MonoBehaviour
-    {
-        public InputType InputType { get; private set; }
-        public JoystickType JoystickType { get; private set; }
+ {
+     public InputType InputType;
+     public JoystickType JoystickType;
         
         /// <summary>
         /// Current Vector2 of finger/mouse movement 
